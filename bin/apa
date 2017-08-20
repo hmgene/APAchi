@@ -1,0 +1,8 @@
+if [  $# -lt 1 ];then
+echo "
+	hello, I am APAchi 
+	What can I do for you? 
+"
+fi
+
+
