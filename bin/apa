@@ -1,8 +1,13 @@
+#!/bin/bash
 if [  $# -lt 1 ];then
 echo "
 	hello, I am APAchi 
 	What can I do for you? 
 "
+exit;
 fi
+. $APACHI_HOME/src/$1.sh;
+#compgen -A function | grep "^$1\+" | grep -vE "^dequote|^quote|^in_array"
+$2 ${@:3}
 
 

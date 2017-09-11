@@ -6,7 +6,7 @@ import(
 	//"os"
 	"os/exec"
 	"log"
-	"fmt"
+	//"fmt"
 )
 
 func get_bam(url string, region string) []byte {
@@ -18,7 +18,8 @@ func get_bam(url string, region string) []byte {
 }
 
 func hello(w http.ResponseWriter, r *http.Request){
-	io.WriteString(w,"hello!");
+	io.WriteString(w,r.FormValue("bam"));
+	log.Printf("hi");
 	//err := exec.LookPath("samtools");
 	//if err != nil { panic(err); }
 } 
@@ -27,9 +28,9 @@ func hello(w http.ResponseWriter, r *http.Request){
 func main(){
 	mux := http.NewServeMux();
 	mux.HandleFunc("/",hello);
-	url := string("http://tanlab.ucdenver.edu/hmKim/Panc/Panc-1.bam");
-	region := string("chr2:10000-200000");
-	res :=get_bam(url,region);
-	fmt.Printf("%s\n",res);	
+	//url := string("http://tanlab.ucdenver.edu/hmKim/Panc/Panc-1.bam");
+	//region := string("chr2:10000-200000");
+	//res :=get_bam(url,region);
+	//fmt.Printf("%s\n",res);	
 	http.ListenAndServe(":8000",mux);
 }
