@@ -1,13 +1,24 @@
 #!/bin/bash
+export BINARY=$APACHI_HOME/bin/`uname -sm | tr " " "."`
+#export PATH=$APACHI_HOME/bin/$BINARY:$PATH
+
 if [  $# -lt 1 ];then
-echo "
+echo '
 	hello, I am APAchi 
-	What can I do for you? 
-"
+	please type "apa list" to see function I can understand 
+	or type "apa function_name" to run the function_name
+'
 exit;
 fi
-. $APACHI_HOME/src/$1.sh;
-#compgen -A function | grep "^$1\+" | grep -vE "^dequote|^quote|^in_array"
-$2 ${@:3}
+
+for f in $APACHI_HOME/src/*.sh;do
+	. $f;
+done
 
 
+if [ $1 == "list" ];then
+	echo ">APAchi functions: "
+	declare -F | perl -pne '$_=~s/declare -f /\t/;';
+else
+	$1 ${@:2};
+fi
