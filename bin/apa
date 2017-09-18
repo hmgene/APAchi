@@ -4,9 +4,8 @@ export BINARY=$APACHI_HOME/bin/`uname -sm | tr " " "."`
 
 if [  $# -lt 1 ];then
 echo '
-	hello, I am APAchi 
-	please type "apa list" to see function I can understand 
-	or type "apa function_name" to run the function_name
+	Hello, I am APAchi 
+	please, type "apa list" to see all the functions I have
 '
 exit;
 fi

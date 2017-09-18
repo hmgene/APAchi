@@ -1,5 +1,5 @@
 
-trim(){
+fastq.trim(){
 usage="
 $FUNCNAME [options] <fastq> 
  [options]:
@@ -65,7 +65,7 @@ if [ $# -lt 1 ];then echo "$usage"; return; fi
         '
 }
 
-trim__test(){
+fastq.trim__test(){
 echo \
 "@a
 TTTTAAGTTTTTTAAAAA
