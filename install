@@ -5,24 +5,19 @@ PATH=$PATH:$APACHI_HOME/bin;
 export APACHI_HOME PATH
 echo "
 	Thank you for installing APAchi tools
-	Please copy and paste the following in your terminal 
-"
-echo '
-	echo "
-	## included by APAchi 
+	Please copy and paste the following in ~/.bash_profile
+
+	## copy from here
 	APACHI_HOME='"$APACHI_HOME"' 
 	PATH=\$APACHI_HOME/bin:\$PATH
 	export APACHI_HOME PATH
-	## end APAchi
-	" >> ~/.bash_profile
-	source ~/.bash_profile
-'
+	## to here
 
-echo "	
-	And then, type the below to see APAchi is installed.
-	>apa
+	and then type 
+	$source ~/.bash_profile
 
-	Visit https://github.com/hmgene/APAchi/wiki for usage
+	for usage please visit 
+	https://github.com/hmgene/APAchi/wiki
 
 "
 
