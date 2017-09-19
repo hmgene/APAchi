@@ -11,7 +11,7 @@ echo '
 	echo "
 	## included by APAchi 
 	APACHI_HOME='"$APACHI_HOME"' 
-	PATH=\$PATH:\$APACHI_HOME/bin 
+	PATH=\$APACHI_HOME/bin:\$PATH
 	export APACHI_HOME PATH
 	## end APAchi
 	" >> ~/.bash_profile
