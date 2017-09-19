@@ -14,7 +14,7 @@ echo "
 	## to here
 
 	and then type 
-	$source ~/.bash_profile
+	\$ source ~/.bash_profile
 
 	for usage please visit 
 	https://github.com/hmgene/APAchi/wiki
