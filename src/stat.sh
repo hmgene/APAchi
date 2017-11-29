@@ -24,7 +24,7 @@ while(length(line) > 0){
         yy=unlist(apply(cbind(x,y,z),1,function(d){
                 c(rep(1,d[2]),rep(2,d[3]))
         }))
-        r=cor.test(xx,yy)$statistic
+        r=cor.test(xx,yy)$estimate
         s=r*r*(length(xx)-1);
         p=1-pchisq(s,1);
 	writeLines(paste(c(line,r,p),collapse="\t"),ofh);
