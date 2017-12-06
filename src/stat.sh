@@ -42,7 +42,8 @@ fi
 rm -r $tmpd
 }
 stat.lineartrend__test(){
-echo	"id1	1,2,3	10,20,30	300,200,100" \
+echo	"id1	1,2,3	10,20,30	300,200,100
+id2	1,2,3	10,20,30	0,0,0" \
 | stat.lineartrend -
 }
 test_lineartrend(){

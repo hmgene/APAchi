@@ -35,6 +35,7 @@ if [ $# -lt 2 ];then echo "$usage"; return; fi
 		open(my $fh,"<",$f) or die "$! $f";
 		while(<$fh>){chomp;my @a=split/\t/,$_;
 			$a[3]=$fid;
+			if($a[4] == 0){ $a[4]=1;} ## count zeros
 			print join("\t",@a),"\n";
 		}
 		close($fh);
@@ -77,14 +78,14 @@ if [ $# -lt 2 ];then echo "$usage"; return; fi
 
 center__test(){
 echo \
-"chr1	2	3	r1	1	+
+"chr1	2	3	r1	0	+
 chr1	5	6	r3	4	+
 chr1	1	2	r1	2	+
 chr1	1	2	r2	3	-
 chr2	5	6	r4	5	+" > tmp.a
 
 echo \
-"chr1	2	3	r1	1	+
+"chr1	2	3	r1	0	+
 chr1	1	2	r1	2	+
 chr1	1	2	r2	3	-
 chr1	5	6	r3	4	+" > tmp.b
