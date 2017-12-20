@@ -20,7 +20,6 @@ $FUNCNAME [options] <bed> [<bed> .. ]
  [options]:
 	 -d <value> : bin size (default 10)
 "
-if [ $# -lt 2 ];then echo "$usage"; return; fi
 	local OPTARG;local OPTIND;local D=10;
 	while getopts ":d:" opt; do
 	  case $opt in d)
@@ -29,6 +28,8 @@ if [ $# -lt 2 ];then echo "$usage"; return; fi
 	  esac
 	done
 	shift $(( OPTIND - 1 ));
+	if [ $# -lt 2 ];then echo "$usage"; return; fi
+
 	perl -e 'use strict;
 	my $fid=0;
 	foreach my $f (@ARGV){
