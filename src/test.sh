@@ -5,7 +5,6 @@ $FUNCNAME [options] <target.bed> <ctr.bed> <trt.bed>
   -d <int> : cluster distance (default 10)
   -m <int> : minimum counts per center (default 1)
 "
-echo $@;
 	local OPTARG;local OPTIND;local D=10; local M=1;
 	while getopts ":d:m:" opt; do
 	  case $opt in
