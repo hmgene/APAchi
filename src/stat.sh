@@ -28,12 +28,12 @@ while(length(line) > 0){
 		s=r*r*(length(xx)-1);
 		p=1-pchisq(s,1);
 	}
-	cat("@OUT",line,r,p,sep="\t",fill=T);
+	cat("OUT",line,r,p,sep="\t",fill=T);
         line=readLines(con,n=1);
 }
 close(con);
 ' > $tmpd/cmd
-cat $1 | R --no-save -f $tmpd/cmd | grep "^@OUT" | cut -f 2-
+cat $1 | R --no-save -f $tmpd/cmd | grep "OUT" | cut -f 2-
 rm -r $tmpd
 }
 stat.lineartrend__test(){

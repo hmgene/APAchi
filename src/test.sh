@@ -18,12 +18,12 @@ $FUNCNAME [options] <target.bed> <ctr.bed> <trt.bed>
 	echo "chrom start end name score strand positions ctr_counts trt_counts r_corr pvalue" | tr " " "\t"
 	apa center -d $D $2 $3 \
 	| awk -v M=$M -v OFS="\t" '$5 >= M' \
-	| apa bedtools intersect -a $1 -b stdin -s -wa -wb \
-	| apa util.groupby - 1,2,3,4,5,6 8,13,14 collapse,collapse,collapse\
+	| bedtools intersect -a $1 -b stdin -s -wa -wb \
+	| util.groupby - 1,2,3,4,5,6 8,13,14 collapse,collapse,collapse\
 	| perl -ne 'chomp;my@a=split/\t/,$_;
 		print join("@",@a[0..5]);
 		print "\t",join("\t",@a[6..$#a]),"\n";' \
-	| apa stat.lineartrend - | tr "@" "\t" 
+	| stat.lineartrend - | tr "@" "\t" 
 }
 test_lineartrend__test(){
 echo \
