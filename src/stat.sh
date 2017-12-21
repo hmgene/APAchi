@@ -23,7 +23,7 @@ while(length(line) > 0){
                 c(rep(1,d[2]),rep(2,d[3]));
         }))
 	r=NA;p=NA;
-	if(length(x) > 1 ){
+	if(length(xx) > 2 && length(yy) > 2){
 		r=cor.test(xx,yy)$estimate;
 		s=r*r*(length(xx)-1);
 		p=1-pchisq(s,1);
