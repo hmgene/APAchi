@@ -23,7 +23,8 @@ $FUNCNAME [options] <target.bed> <ctr.bed> <trt.bed>
 	| perl -ne 'chomp;my@a=split/\t/,$_;
 		print join("@",@a[0..5]);
 		print "\t",join("\t",@a[6..$#a]),"\n";' \
-	| stat.lineartrend - | tr "@" "\t" 
+	| stat.lineartrend - | tr "@" "\t" \
+	| awk -v OFS="\t" '$6=="-" { $10 = - $10;} 1'  
 }
 test_lineartrend__test(){
 echo \
